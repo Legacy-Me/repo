@@ -1,0 +1,71 @@
+Package: com.RetroWeirdos.DuolingoX
+Name: DuolingoX
+Version: 1.0
+Section: Tweaks
+Architecture: iphoneos-arm
+Depends: mobilesubstrate
+Author: RetroWeirdos
+Maintainer: RetroWeirdos
+Description: A simple fix for duolingo using HTML
+Size: 7
+MD5sum: 64a2806148602bc9b272b52036633ae0
+Filename: ./debs/com.retroweirdos.duolingox_1.0.0-1+debug_iphoneos-arm.deb
+Depiction: My Tweaks
+
+Package: com.ivintagelover.solidglass2-rootless
+Name: Solid Glass 2 Rootless
+Depends: mobilesubstrate, applist, preferenceloader
+Architecture: iphoneos-arm
+Description: Solid Glass is a theme that brings the fresh new iOS 26 Liquid Glass icons to older jailbreakable devices. Now with 3 beautiful modes: Light, Tinted and Dark. Optimized to feel native on older versions, from icon corner radius to contrast levels.
+Maintainer: iVintageLover
+Author: iVintageLover
+Section: Themes
+Version: 2.2.1
+Size: 22855312
+MD5sum: e76b7fcf33d1b5aee9659b0633dc445c
+Filename: ./debs/Solid.Glass.Rootless.deb
+Depiction: My Tweaks 2
+
+
+Package: com.ivintagelover.solidglass2-rootful
+Name: Solid Glass 2 Rootful
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Description: Solid Glass is a theme that brings the fresh new iOS 26 Liquid Glass icons to older jailbreakable devices. Now with 3 beautiful modes: Light, Tinted and Dark. Optimized to feel native on older versions, from icon corner radius to contrast levels.
+Maintainer: iVintageLover
+Author: iVintageLover
+Section: Themes
+Version: 2.2.1
+Size: 24969768
+MD5sum: 03b8359f4122529aef9550c106b0836c
+Filename: ./debs/Solid.Glass.Rootful.deb
+Depiction: My Tweaks 3
+
+Package: com.ivintagelover.locktime26
+Name: LockTime26
+Version: 1.0
+Architecture: iphoneos-arm
+Description: The spiritual successor to LockTimeX, skipping the line and bringing the ultra-modern and tall aesthetics of iOS 16 through iOS 26 straight to your older device running iOS 9 or later, so you can finally modernize that one iPhone 4s rotting in your drawer.
+Filename: ./debs/com.ivintagelover.locktime26_1.0_iphoneos-arm.deb
+Depiction: My Tweaks 4
+Author: iVintageLover
+Section: xenhtml
+Maintainer: iVintageLover
+Depends: mobilesubstrate
+MD5sum: 6cf7515f86fe172b670f92ea07d9103b
+Size: 6844156
+
+Package: com.matchstic.xenhtml
+Name: Xen HTML fix for ios 9-10!
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Description: Run HTML widgets on the Lockscreen and Homescreen!
+Maintainer: RetroWeirdos
+Author: matchstic
+Section: xenhtml
+Version: 2.0
+Size: 8558214
+MD5sum: 0edf2be0d3be522aa40140033dab1d33
+Filename: ./debs/com.matchstic.xenhtml_2.0~release_iphoneos-arm.deb
+Depiction: My Tweaks 5
+
