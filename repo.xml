@@ -1,0 +1,14 @@
+<repo>
+	<footerlinks>
+		<link>
+			<name></name>
+			<url>https://www.youtube.com/@RetroWeirdos</url>
+			<iconclass>fa fa-youtube</iconclass>
+		</link>
+		<link>
+			<name>I want this depiction template</name>
+			<url>https://legacyme.github.io</url>
+			<iconclass>fa fa-thumbs-up</iconclass>
+		</link>
+	</footerlinks>
+</repo>
