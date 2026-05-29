@@ -1,7 +1,7 @@
 Origin: LegacyMe Repo
 Label: LegacyMe Repo
 Suite: stable
-Version: 1.0
+Version: 4.0
 Codename: ios
 Architectures: iphoneos-arm
 Components: main
