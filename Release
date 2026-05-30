@@ -1,8 +1,12 @@
 Origin: LegacyMe Repo
 Label: LegacyMe Repo
 Suite: stable
-Version: 4.0
+Version: 1.0
 Codename: ios
 Architectures: iphoneos-arm
 Components: main
 Description: A repo by RetroWeirdos on YouTube!
+
+SHA256:
+ 0E53BB2280562D5E4B8E726079B4D4039A82625077A4A97F1B95D8AAB03CDEA7 2482 Packages.bz2
+ ACE2813D6816042C298AFB0975EE0628567CFB3BE1314BD1AFD9E49DE63D38BC 2384 Packages.xz
