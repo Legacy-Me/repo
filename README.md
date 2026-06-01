@@ -1,1 +1,1 @@
-Hey Guys, Checkout my channel "RetroWeirdos" It's a channel for most retro tech! <3
+# Repo containing RetroWeirdos Jailbreak Tweaks.
