@@ -3395,7 +3395,7 @@ Icon: file:///Applications/Zebra.app/AppIcon60x60@3x.png
 Name: Zebra
 Support: https://getzbra.com/repo/depictions/xyz.willy.Zebra/bug_report.html
 
-Package: com.retroweirdos.pinterestx
+Package: com.victorlobe.pinterestfix
 Name: PinterestX
 Version: 1.0.2
 Architecture: iphoneos-arm
@@ -3412,7 +3412,7 @@ SHA256: 79b3f34296dcf978884501660265d4741d396e0b52e7616533381a6b5ae544b7
 Description: Fixes Pinterest on iOS 5+ Requires Pinterest 2.6+
 Depiction: http://repo.victorlobe.me/depictions/depiction.html?id=com.victorlobe.pinterestfix
 
-Package: com.retroweirdos.duolingox
+Package: com.victorlobe.duolingox
 Name: DuolingoX
 Version: 1.0.0-1+debug
 Architecture: iphoneos-arm
@@ -3526,4 +3526,20 @@ MD5sum: a0c2471c860114d3d7d76ba7e1b7e61b
 SHA1: 9dc57ee4d8153fb90f03f08e5f0cbbb7aee8e2b4
 SHA256: 26d3e7b7f46286439774f358b0958e3eaaf53808a640fa06db9fdf7ba8a44bcc
 Description: Discord client for iOS 5 & 6 by Trevir
+
+Package: com.ioscreatix.maize
+Version: 1.0.5-1
+Architecture: iphoneos-arm
+Maintainer: Creatix <developer@ioscreatix.com>
+Depends: mobilesubstrate, preferenceloader, flipswitch
+Section: Tweaks
+Tag: role::tweaked, compatible::ios9
+Size: 571542
+MD5sum: cd82e85a67c5bf1b9948db8132ca4d8a
+SHA1: dcf8198f3be2bbd0ee409b30c14b7e8006e8b4e7
+SHA256: d075c3db68981fbb9c8bb26cba7f0bc6cc0be7fbbf2df5d519b76c8c368d7fe6
+Filename: ./debs/com.ioscreatix.maize_1.0.5-1.deb
+Description: A pixel-perfect replica of the iOS 11 Control Center built natively for iOS 10. Maize provides full customization, Flipswitch/Polus modular architecture integration, an extendable developer API, and deep contextual features like long-pressing to change WiFi networks.
+Name: Maize (iOS 10)
+Author: Creatix
 
