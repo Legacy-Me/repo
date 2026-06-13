@@ -3527,19 +3527,19 @@ SHA1: 9dc57ee4d8153fb90f03f08e5f0cbbb7aee8e2b4
 SHA256: 26d3e7b7f46286439774f358b0958e3eaaf53808a640fa06db9fdf7ba8a44bcc
 Description: Discord client for iOS 5 & 6 by Trevir
 
-Package: com.ioscreatix.maize
+Package: org.ioscreatix.maize
 Version: 1.0.5-1
 Architecture: iphoneos-arm
 Maintainer: RetroWeirdos
+Author: RetroWeirdos
 Depends: firmware (>= 9.3.5), mobilesubstrate (>= 0.9.5000), preferenceloader, com.a3tweaks.flipswitch
 Section: Tweaks
 Tag: purpose::extension, compatible::ios9
-Size: 571404
-MD5sum: 59488c1d75d1a00c25a499e6de4a95ed
-SHA1: aba325c66fbc85d565b22955c107fa674112f5a4
-SHA256: 3fb2b15133b61fb3e0355531f27a1e4ac8335477d5adfffc718db6716a724c8a
-Filename: ./debs/com.ioscreatix.maize_1.0.5-1_ios9_originalformat.deb
+Size: 571182
+MD5sum: 0b5ad2c97851b99f05585019f7e7175a
+SHA1: 2c8101360cebd084acbe432c2f22c94caa1323e0
+SHA256: 8e01d15ff581a80db2a826100849773d13279129aacdf4e420e8f048641cdb52
+Filename: ./debs/org.ioscreatix.maize_1.0.5-1_ios9.deb
 Description: The iOS 11 Control Center on iOS 9.3.5
 Name: Maize (iOS 9.3.5)
-Author: RetroWeirdos
 

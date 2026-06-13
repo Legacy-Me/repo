@@ -8,17 +8,17 @@ Components: main
 Description: Repo containing RetroWeirdos jailbreak tweaks.
 
 MD5Sum:
- 8a7776d45b1be4413adb1ebe1fbb3d6b     132832 Packages
- ccba0150e903e1bbdd7c4d2901e4ba52      33146 Packages.bz2
- 20453dfcd679ca86b2b10f4ec016e3dd      33688 Packages.xz
+ 92b62e46910fc246deb0aee2aecbdd17     132817 Packages
+ c469368d1ae84889930dbbea25a69d65      33142 Packages.bz2
+ 53bf6ddc2053557544301b24ecc92791      33680 Packages.xz
 
 SHA1:
- 62971eb4501a0ffda11ef6dcb416856697666433     132832 Packages
- 0b7aec5f6f6637772576d27d4c87ff177a49da8d      33146 Packages.bz2
- b69ed01de6c62d7a761f2a603095acef7e900404      33688 Packages.xz
+ 8d1222bf1dcaa56604ee97d23b249adacbcc7a57     132817 Packages
+ bb7b2f42bbde8b31ac59ec391526b87be3e48d41      33142 Packages.bz2
+ 5d4a36f53b7247dc0bfb05d56bc010891d8e7885      33680 Packages.xz
 
 SHA256:
- ead8e5e954bf84cd71263cacee5070db9a61bfd1bf462e5ee519cd8b86dfc9c7     132832 Packages
- ff6ba452a7ab95e61810d40144dcb5915fb07ab63b2a58705a9b187735d291dc      33146 Packages.bz2
- 5379a70b4eb7f26d3b0adfcd6ff29d329ee8eb7f173af8459cfcd88c58776dd0      33688 Packages.xz
+ 83584b1007005c6e82e3aac961600488cf918ec9dcd07c18836c8ec053aa5df8     132817 Packages
+ 4cc10646e8e78a33cfa102b3df9b5e0900dc26ccc36da38ac46cf405b2ad89a4      33142 Packages.bz2
+ f06b76a03a972c43aa6ba797abcc87609c3468577cea99c79f0656558e5db2a6      33680 Packages.xz
 
