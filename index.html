@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>RetroWeirdosProjects</title>
+    <link rel="icon" type="image/png" href="icons/GLOBEICON.png">
     <style>
         /* Authentic iOS 6 Pinstripe Background */
         body {
@@ -291,7 +292,7 @@
             transform: translateY(-50%) rotate(45deg);
         }
 
-        /* Desktop View Layout */
+        /* Desktop Column Grid Setup */
         .dashboard-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -302,6 +303,7 @@
         .column {
             display: flex;
             flex-direction: column;
+            gap: 0;
         }
 
         .page-view {
@@ -326,8 +328,7 @@
                 width: 100%;
             }
             .column {
-                display: block;   
-                width: 100%;
+                display: contents;   
             }
             .container {
                 padding: 10px;
@@ -357,6 +358,7 @@
                 margin: 10px 0 6px 6px;
             }
 
+            /* Custom mobile stacking fallback rules */
             .block-package-managers { order: 1; }
             .block-featured {         order: 2; }
             .block-about-me {         order: 3; }
@@ -380,76 +382,80 @@
 
             <div class="dashboard-grid">
                 
-                <div class="dashboard-block block-package-managers">
-                    <div class="section-title">Add to Package Manager</div>
-                    <div class="table-group">
-                        <div class="table-row row-static" style="font-weight: bold;">LegacyMeRepo</div>
-                        <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://legacy-me.github.io/repo/" class="table-row row-link main-row-link">Add to Cydia</a>
-                        <a href="sileo://source/https://legacy-me.github.io/repo/" class="table-row row-link main-row-link">Add to Sileo</a>
-                        <a href="zbra://sources/add/https://legacy-me.github.io/repo/" class="table-row row-link main-row-link">Add to Zebra</a>
-                        <a href="installer://add/https://legacy-me.github.io/repo/" class="table-row row-link main-row-link">Add to Installer</a>
+                <div class="column">
+                    <div class="dashboard-block block-package-managers">
+                        <div class="section-title">Add to Package Manager</div>
+                        <div class="table-group">
+                            <div class="table-row row-static" style="font-weight: bold;">LegacyMeRepo</div>
+                            <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://legacy-me.github.io/repo/" class="table-row row-link main-row-link">Add to Cydia</a>
+                            <a href="sileo://source/https://legacy-me.github.io/repo/" class="table-row row-link main-row-link">Add to Sileo</a>
+                            <a href="zbra://sources/add/https://legacy-me.github.io/repo/" class="table-row row-link main-row-link">Add to Zebra</a>
+                            <a href="installer://add/https://legacy-me.github.io/repo/" class="table-row row-link main-row-link">Add to Installer</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="dashboard-block block-featured">
-                    <div class="section-title">Featured Packages</div>
-                    <div class="table-group">
-                        <a onclick="switchPage('pinterestx-page')" class="table-row row-link main-row-link">
-                            <div class="pkg-row-layout">
-                                <img src="icons/PinterestX.png" class="pkg-row-icon" alt="Icon">
-                                <div>
-                                    PinterestX
-                                    <span class="pkg-subtitle">Fixes Pinterest on iOS 5+ Requires Pinterest 2.6+</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a onclick="switchPage('duolingox-page')" class="table-row row-link main-row-link">
-                            <div class="pkg-row-layout">
-                                <img src="icons/DuolingoX.png" class="pkg-row-icon" alt="Icon">
-                                <div>
-                                    DuolingoX
-                                    <span class="pkg-subtitle">Changes Duolingo's User-Agent enabling it to function on iOS 9!</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a onclick="switchPage('xenhtml-page')" class="table-row row-link main-row-link">
-                            <div class="pkg-row-layout">
-                                <img src="icons/Xenhtml.png" class="pkg-row-icon" alt="Icon">
-                                <div>
-                                    Xen HTML fix for iOS 9!
-                                    <span class="pkg-subtitle">Unified HTML widgets; lockscreen and homescreen</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a onclick="switchPage('maize-page')" class="table-row row-link main-row-link">
-                            <div class="pkg-row-layout">
-                                <img src="icons/Maize.png" class="pkg-row-icon" alt="Icon">
-                                <div>
-                                    Maize (iOS 9.3.5)
-                                    <span class="pkg-subtitle">The iOS 11 Control Center on iOS 9.3.5</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="dashboard-block block-about-me">
-                    <div class="section-title">About Me</div>
-                    <div class="table-group">
-                        <div class="table-row row-static" style="padding: 15px 18px;">
-                            <span class="row-desc">
-                                Hi, I’m RetroWeirdos — a young developer with a deep passion for legacy technology and vintage iOS. Growing up surrounded by old devices, I fell in love with the golden era of iOS (versions 6 through 9) and the clean, charming design of Windows 8. As a legacy iOS enthusiast, I enjoy breathing new life into older Apple devices through sideloading, custom tweaks, and creative modifications. Whether it’s developing apps, exploring retro emulators, or tinkering with forgotten operating systems, I’m always chasing that nostalgic tech feeling. My goal is to preserve and celebrate the soul of older technology while building fun, unique projects for the community.
-                            </span>
+                    <div class="dashboard-block block-social">
+                        <div class="section-title">Social</div>
+                        <div class="table-group">
+                            <a href="https://x.com/RetroWeirdos" target="_blank" class="table-row row-link main-row-link">X</a>
+                            <a href="https://www.reddit.com/user/Total_Negotiation608/" target="_blank" class="table-row row-link main-row-link">Reddit</a>
+                            <a href="https://www.youtube.com/@RetroWeirdos" target="_blank" class="table-row row-link main-row-link">YouTube</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="dashboard-block block-social">
-                    <div class="section-title">Social</div>
-                    <div class="table-group">
-                        <a href="https://x.com/RetroWeirdos" target="_blank" class="table-row row-link main-row-link">X</a>
-                        <a href="https://www.reddit.com/user/Total_Negotiation608/" target="_blank" class="table-row row-link main-row-link">Reddit</a>
-                        <a href="https://www.youtube.com/@RetroWeirdos" target="_blank" class="table-row row-link main-row-link">YouTube</a>
+                <div class="column">
+                    <div class="dashboard-block block-about-me">
+                        <div class="section-title">About Me</div>
+                        <div class="table-group">
+                            <div class="table-row row-static" style="padding: 15px 18px;">
+                                <span class="row-desc">
+                                    Hi, I’m RetroWeirdos — a young developer with a deep passion for legacy technology and vintage iOS. Growing up surrounded by old devices, I fell in love with the golden era of iOS (versions 6 through 9) and the clean, charming design of Windows 8. As a legacy iOS enthusiast, I enjoy breathing new life into older Apple devices through sideloading, custom tweaks, and creative modifications. Whether it’s developing apps, exploring retro emulators, or tinkering with forgotten operating systems, I’m always chasing that nostalgic tech feeling. My goal is to preserve and celebrate the soul of older technology while building fun, unique projects for the community.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-block block-featured">
+                        <div class="section-title">Featured Packages</div>
+                        <div class="table-group">
+                            <a onclick="switchPage('pinterestx-page')" class="table-row row-link main-row-link">
+                                <div class="pkg-row-layout">
+                                    <img src="icons/PinterestX.png" class="pkg-row-icon" alt="Icon">
+                                    <div>
+                                        PinterestX
+                                        <span class="pkg-subtitle">Fixes Pinterest on iOS 5+ Requires Pinterest 2.6+</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a onclick="switchPage('duolingox-page')" class="table-row row-link main-row-link">
+                                <div class="pkg-row-layout">
+                                    <img src="icons/DuolingoX.png" class="pkg-row-icon" alt="Icon">
+                                    <div>
+                                        DuolingoX
+                                        <span class="pkg-subtitle">Changes Duolingo's User-Agent enabling it to function on iOS 9!</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a onclick="switchPage('xenhtml-page')" class="table-row row-link main-row-link">
+                                <div class="pkg-row-layout">
+                                    <img src="icons/Xenhtml.png" class="pkg-row-icon" alt="Icon">
+                                    <div>
+                                        Xen HTML fix for iOS 9!
+                                        <span class="pkg-subtitle">Unified HTML widgets; lockscreen and homescreen</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a onclick="switchPage('maize-page')" class="table-row row-link main-row-link">
+                                <div class="pkg-row-layout">
+                                    <img src="icons/Maize.png" class="pkg-row-icon" alt="Icon">
+                                    <div>
+                                        Maize (iOS 9.3.5)
+                                        <span class="pkg-subtitle">The iOS 11 Control Center on iOS 9.3.5</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
