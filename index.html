@@ -357,7 +357,6 @@
                 margin: 10px 0 6px 6px;
             }
 
-            /* Custom explicit stacking orders assigned securely directly to block containers */
             .block-package-managers { order: 1; }
             .block-featured {         order: 2; }
             .block-about-me {         order: 3; }
@@ -373,7 +372,7 @@
             <div class="header-section">
                 <div class="header-card">
                     <div class="repo-icon-wrapper">
-                        <img src="Cydiaicon.png" class="repo-icon" onerror="this.onerror=null; this.src='CydiaIcon.png';" alt="Icon">
+                        <img src="icons/LOGO.png" class="repo-icon" onerror="this.onerror=function(){this.src='icons/logo.png'; this.onerror=function(){this.src='Cydiaicon.png';}}; if(this.src.indexOf('Cydiaicon.png')===-1)this.src='icons/LOGO.png';" alt="Icon">
                     </div>
                     <div class="repo-title">RetroWeirdos<span>Projects</span></div>
                 </div>
