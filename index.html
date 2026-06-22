@@ -22,7 +22,7 @@
         .container {
             width: 100%;
             max-width: 960px;
-            padding: 15px;
+            padding: 10px 15px;
             box-sizing: border-box;
         }
 
@@ -30,7 +30,7 @@
         .header-section {
             display: flex;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
         }
 
         .header-card {
@@ -38,7 +38,7 @@
             border: 1px solid #ababab;
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            padding: 20px 35px;
+            padding: 12px 35px;
             display: flex;
             align-items: center;
             gap: 25px;
@@ -48,9 +48,9 @@
         }
 
         .repo-icon-wrapper {
-            width: 80px;
-            height: 80px;
-            border-radius: 18px;
+            width: 68px;
+            height: 64px;
+            border-radius: 14px;
             overflow: hidden;
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
             display: block;
@@ -67,7 +67,7 @@
 
         .repo-title {
             font-family: -apple-system-headline, "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 38px;
+            font-size: 34px;
             font-weight: 800;
             color: #000000;
             letter-spacing: -1.5px;
@@ -81,11 +81,11 @@
 
         .section-title {
             font-family: -apple-system-short-headline, "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             color: #4d566f;
             text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
-            margin: 0 0 8px 8px;
+            margin: 0 0 6px 8px;
         }
 
         /* iOS 6 Glossy Subtitle Headers for Depiction Sections */
@@ -108,7 +108,7 @@
             border: 1px solid #ababab;
             border-radius: 10px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             padding: 0;
             overflow: hidden;
             width: 100%;
@@ -125,8 +125,8 @@
         .table-row {
             display: block;
             position: relative;
-            padding: 14px 15px;
-            font-size: 17px;
+            padding: 10px 15px;
+            font-size: 16px;
             font-weight: bold;
             color: #222222;
             text-decoration: none;
@@ -158,9 +158,9 @@
 
         .row-desc {
             font-family: -apple-system-body, "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 16px;
+            font-size: 15px;
             color: #222222;
-            line-height: 1.4;
+            line-height: 1.35;
             display: block;
         }
 
@@ -173,8 +173,8 @@
         }
 
         .pkg-row-icon {
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             border-radius: 7px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.2);
             flex-shrink: 0;
@@ -204,11 +204,11 @@
         }
 
         .pkg-subtitle {
-            font-size: 13px;
+            font-size: 12px;
             color: #666666;
             font-weight: normal;
             display: block;
-            margin-top: 2px;
+            margin-top: 1px;
             line-height: 1.2;
         }
 
@@ -222,6 +222,75 @@
             font-size: 14px;
             color: #24292f;
             margin: 5px 0;
+        }
+
+        /* ================= iOS 6 COMPACT FORM INPUT ELEMENTS ================= */
+        .ios6-form {
+            padding: 10px 12px;
+            background: #ffffff;
+            box-sizing: border-box;
+        }
+
+        .ios6-label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            color: #4c566c;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+            margin-bottom: 4px;
+            padding-left: 2px;
+        }
+
+        .ios6-input, .ios6-textarea {
+            width: 100%;
+            font-family: -apple-system-body, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 15px;
+            padding: 6px 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ababab;
+            border-radius: 6px;
+            background-color: #ffffff;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 0 #fff;
+            color: #000000;
+            box-sizing: border-box;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .ios6-input:focus, .ios6-textarea:focus {
+            border-color: #385487;
+        }
+
+        .ios6-textarea {
+            resize: none;
+            min-height: 52px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        /* Authentic iOS 6 Glossy Blue Call-To-Action Button Layout */
+        .ios6-btn-blue {
+            display: block;
+            width: 100%;
+            padding: 9px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            text-align: center;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+            background: linear-gradient(to bottom, #7aa1df 0%, #4373ca 50%, #2a5cb4 51%, #2452a3 100%);
+            border: 1px solid #1a3d80;
+            border-radius: 8px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            user-select: none;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+        }
+
+        .ios6-btn-blue:active {
+            background: linear-gradient(to bottom, #2452a3 0%, #1a3d80 100%);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
         }
 
         /* ================= iOS 6 STANDALONE BACK NAVIGATION ================= */
@@ -358,11 +427,11 @@
                 margin: 10px 0 6px 6px;
             }
 
-            /* Custom mobile stacking fallback rules */
             .block-package-managers { order: 1; }
             .block-featured {         order: 2; }
             .block-about-me {         order: 3; }
             .block-social {           order: 4; }
+            .block-beta-form {        order: 5; }
         }
     </style>
 </head>
@@ -383,6 +452,15 @@
             <div class="dashboard-grid">
                 
                 <div class="column">
+                    <div class="dashboard-block block-social">
+                        <div class="section-title">Social</div>
+                        <div class="table-group">
+                            <a href="https://x.com/RetroWeirdos" target="_blank" class="table-row row-link main-row-link">X</a>
+                            <a href="https://www.reddit.com/user/Total_Negotiation608/" target="_blank" class="table-row row-link main-row-link">Reddit</a>
+                            <a href="https://www.youtube.com/@RetroWeirdos" target="_blank" class="table-row row-link main-row-link">YouTube</a>
+                        </div>
+                    </div>
+
                     <div class="dashboard-block block-package-managers">
                         <div class="section-title">Add to Package Manager</div>
                         <div class="table-group">
@@ -394,12 +472,18 @@
                         </div>
                     </div>
 
-                    <div class="dashboard-block block-social">
-                        <div class="section-title">Social</div>
+                    <div class="dashboard-block block-beta-form">
+                        <div class="section-title">Submit Application for Beta Testing</div>
                         <div class="table-group">
-                            <a href="https://x.com/RetroWeirdos" target="_blank" class="table-row row-link main-row-link">X</a>
-                            <a href="https://www.reddit.com/user/Total_Negotiation608/" target="_blank" class="table-row row-link main-row-link">Reddit</a>
-                            <a href="https://www.youtube.com/@RetroWeirdos" target="_blank" class="table-row row-link main-row-link">YouTube</a>
+                            <form class="ios6-form" action="https://formspree.io/f/xoqggyen" method="POST">
+                                <label class="ios6-label" for="beta-email">Email Address</label>
+                                <input class="ios6-input" type="email" id="beta-email" name="email" placeholder="example@email.com" required>
+                                
+                                <label class="ios6-label" for="beta-reason">Why do you want to beta test my projects?</label>
+                                <textarea class="ios6-textarea" id="beta-reason" name="reason" placeholder="State exactly why you want to test these legacy tweaks..." required oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'"></textarea>
+                                
+                                <button class="ios6-btn-blue" type="submit">Submit Application</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -408,7 +492,7 @@
                     <div class="dashboard-block block-about-me">
                         <div class="section-title">About Me</div>
                         <div class="table-group">
-                            <div class="table-row row-static" style="padding: 15px 18px;">
+                            <div class="table-row row-static" style="padding: 12px 15px;">
                                 <span class="row-desc">
                                     Hi, I’m RetroWeirdos — a young developer with a deep passion for legacy technology and vintage iOS. Growing up surrounded by old devices, I fell in love with the golden era of iOS (versions 6 through 9) and the clean, charming design of Windows 8. As a legacy iOS enthusiast, I enjoy breathing new life into older Apple devices through sideloading, custom tweaks, and creative modifications. Whether it’s developing apps, exploring retro emulators, or tinkering with forgotten operating systems, I’m always chasing that nostalgic tech feeling. My goal is to preserve and celebrate the soul of older technology while building fun, unique projects for the community.
                                 </span>
