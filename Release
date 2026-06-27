@@ -1,5 +1,5 @@
-Origin: LegacyMeRepo
-Label: LegacyMeRepo
+Origin: RetroWeirdosProjects
+Label: RetroWeirdosProjects
 Suite: stable
 Version: 1.0
 Codename: ios
@@ -8,17 +8,17 @@ Components: main
 Description: Repo containing RetroWeirdos jailbreak tweaks.
 
 MD5Sum:
- 92b62e46910fc246deb0aee2aecbdd17     132817 Packages
- c469368d1ae84889930dbbea25a69d65      33142 Packages.bz2
- 53bf6ddc2053557544301b24ecc92791      33680 Packages.xz
+ c6ed1d7df80caf2ac87652c9f9b9b43c            134550 Packages
+ 3e6176f06c089d2f6133e3fc22073a60             33364 Packages.bz2
+ 80b2e0ed64965385a9da88278437d5d7             33936 Packages.xz
 
 SHA1:
- 8d1222bf1dcaa56604ee97d23b249adacbcc7a57     132817 Packages
- bb7b2f42bbde8b31ac59ec391526b87be3e48d41      33142 Packages.bz2
- 5d4a36f53b7247dc0bfb05d56bc010891d8e7885      33680 Packages.xz
+ 1b429e7b7e8a565daf53b60663f31f6d4bc22476    134550 Packages
+ 66cb67805471ce3d74aa99213d69dd2691c4b46b     33364 Packages.bz2
+ a15eb01aaac8d8662476dd25108a48c48e372d5c     33936 Packages.xz
 
 SHA256:
- 83584b1007005c6e82e3aac961600488cf918ec9dcd07c18836c8ec053aa5df8     132817 Packages
- 4cc10646e8e78a33cfa102b3df9b5e0900dc26ccc36da38ac46cf405b2ad89a4      33142 Packages.bz2
- f06b76a03a972c43aa6ba797abcc87609c3468577cea99c79f0656558e5db2a6      33680 Packages.xz
+ c60917c23d9d41eb0ff1143192ed2cd75bde69446f0d6adc57f8edc72b21dc64   134550 Packages
+ 78234681d3764fa266c39867bf5bfb28a6e2ef05c81615226c644ff3d9aa780a    33364 Packages.bz2
+ a826fc75c6402dde8316498029622d74611b1e58143e008ad01e209ac0d84186    33936 Packages.xz
 

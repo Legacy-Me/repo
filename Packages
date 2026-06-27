@@ -3543,3 +3543,39 @@ Filename: ./debs/org.ioscreatix.maize_1.0.5-1_ios9.deb
 Description: The iOS 11 Control Center on iOS 9.3.5
 Name: Maize (iOS 9.3.5)
 
+Package: com.ivintagelover.solidglass27
+Version: 1.1
+Architecture: iphoneos-arm
+Depends: firmware (>=1.2)
+Filename: ./debs/com.ivintagelover.solidglass27.deb
+Size: 31654754
+MD5sum: fe0fc8fa8ee5287b0e7d136525eb551e
+SHA1: 670f566fb5fb4e35df3cec3fbd702be2f7126673
+SHA256: 62009081d2c82f8defb39a2f06cda900ce941eec7491c986994d0eaae58e8d96
+Section: Themes
+Description: iOS 27 icons for older devices.
+Depiction: https://ivintagelover.github.io/depiction/web/com.ivintagelover.solidglass27.html
+Icon: https://ivintagelover.github.io/assets/com.ivintagelover.solidglass27/icon.png
+Moderndepiction: https://ivintagelover.github.io/depiction/native/com.ivintagelover.solidglass27.json
+Name: Solid Glass 27
+Sileodepiction: https://ivintagelover.github.io/depiction/native/com.ivintagelover.solidglass27.json
+Tags: compatible_min::ios1.2, compatible_max::ios18.7.9
+
+Package: com.ivintagelover.solidglass27rl
+Version: 3.0
+Architecture: iphoneos-arm64
+Depends: firmware (>=12.0)
+Filename: ./debs/com.ivintagelover.solidglass27rl.deb
+Size: 31660060
+MD5sum: 754a4af604642209c8134c81eb271ec1
+SHA1: d59925dcb34c6a8e732def710826453fe7a4ea6f
+SHA256: 30323a3eac771a464b19082b588495325ec0ee02e92dc746c978ae01a7f2dc33
+Section: Themes
+Description: iOS 27 icons for older devices.
+Depiction: https://ivintagelover.github.io/depiction/web/com.ivintagelover.solidglass27rl.html
+Icon: https://ivintagelover.github.io/assets/com.ivintagelover.solidglass27rl/icon.png
+Moderndepiction: https://ivintagelover.github.io/depiction/native/com.ivintagelover.solidglass27rl.json
+Name: Solid Glass 27 Rootless
+Sileodepiction: https://ivintagelover.github.io/depiction/native/com.ivintagelover.solidglass27rl.json
+Tags: compatible_min::ios12.0, compatible_max::ios18.7.9
+
