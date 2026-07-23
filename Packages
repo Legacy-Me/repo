@@ -3412,22 +3412,6 @@ SHA256: 79b3f34296dcf978884501660265d4741d396e0b52e7616533381a6b5ae544b7
 Description: Fixes Pinterest on iOS 5+ Requires Pinterest 2.6+
 Depiction: http://repo.victorlobe.me/depictions/depiction.html?id=com.victorlobe.pinterestfix
 
-Package: com.victorlobe.duolingox
-Name: DuolingoX
-Version: 1.0.0-1+debug
-Architecture: iphoneos-arm
-Maintainer: RetroWeirdos
-Author: RetroWeirdos
-Section: Tweaks
-Depends: mobilesubstrate (>= 0.9.5000)
-Installed-Size: 188
-Filename: debs/com.retroweirdos.duolingox_1.0.0-1+debug_iphoneos-arm.deb
-Size: 6824
-MD5sum: d7d816e672d0123d6ca1e3d9036d2a0e
-SHA1: b1dffd58024fbc28a1367439fc099ad63611672f
-SHA256: 8534d2a56fc8df01a027c960b4654b63f6e3f27d339e42e9080382af72548336
-Description: Changes Duolingo's User-Agent enabling it to function on iOS 9!
-
 Package: com.retroweirdos.twitterlegacypatcher
 Name: TwitterLegacyPatcher
 Version: 0.1.1-1+debug
