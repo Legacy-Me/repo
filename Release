@@ -1,11 +1,11 @@
-Origin: LegacyMe Repository
-Label: LegacyMe Repository 
+Origin: RetroLabs
+Label: RetroLabs 
 Suite: stable
 Version: 1.0
 Codename: ios
 Architectures: iphoneos-arm iphoneos-arm64
 Components: main
-Description: Repo containing RetroWeirdos jailbreak tweaks.
+Description: The official repository of RetroLabs.
 
 MD5Sum:
  c6ed1d7df80caf2ac87652c9f9b9b43c            134550 Packages

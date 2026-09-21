@@ -1,1 +1,1 @@
-# Repo containing RetroWeirdos Jailbreak Tweaks.
+# The official repository of RetroLabs.
