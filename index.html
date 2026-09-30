@@ -2,505 +2,802 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>RetroWeirdosProjects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroLabs</title>
     <link rel="icon" type="image/png" href="icons/GLOBEICON.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* Authentic iOS 6 Pinstripe Background */
-        body {
-            font-family: -apple-system-body, "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-color: #cbd2d8;
-            background-image: linear-gradient(90deg, #c5cdd3 50%, transparent 50%);
-            background-size: 4px 100%;
+        :root {
+            --bg-base: #0b0f17;
+            --surface-card: rgba(17, 24, 39, 0.85);
+            --surface-card-hover: rgba(24, 34, 53, 0.95);
+            --surface-subtle: rgba(30, 41, 59, 0.8);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(255, 255, 255, 0.16);
+            --accent-primary: #38bdf8;
+            --accent-primary-hover: #0ea5e9;
+            --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --transition-fast: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             -webkit-font-smoothing: antialiased;
+            background-image: 
+                linear-gradient(rgba(11, 15, 23, 0.4), rgba(11, 15, 23, 0.6)),
+                url('icons/BG.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
         }
 
         .container {
             width: 100%;
-            max-width: 960px;
-            padding: 10px 15px;
-            box-sizing: border-box;
+            max-width: 1140px;
+            padding: 40px 24px 80px;
         }
 
-        /* Responsive Header Layout */
-        .header-section {
+        /* Persistent Top Navigation & Mobile UI */
+        .site-nav {
             display: flex;
-            justify-content: center;
-            margin-bottom: 12px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 9999px;
+            margin-bottom: 48px;
+            position: sticky;
+            top: 20px;
+            z-index: 50;
+            transition: var(--transition-smooth);
         }
 
-        .header-card {
-            background: #ffffff;
-            border: 1px solid #ababab;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            padding: 12px 35px;
+        .nav-left {
             display: flex;
             align-items: center;
-            gap: 25px;
-            width: 100%;
-            max-width: 600px;
-            box-sizing: border-box;
+            gap: 20px;
         }
 
-        .repo-icon-wrapper {
-            width: 68px;
-            height: 64px;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            display: block;
-            flex-shrink: 0;
-            background: #fff;
+        .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .repo-icon {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: scale(1.02);
-        }
-
-        .repo-title {
-            font-family: -apple-system-headline, "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 34px;
-            font-weight: 800;
-            color: #000000;
-            letter-spacing: -1.5px;
-            line-height: 1.1;
-            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-        }
-
-        .repo-title span {
-            display: inline;
-        }
-
-        .section-title {
-            font-family: -apple-system-short-headline, "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 18px;
-            font-weight: bold;
-            color: #4d566f;
-            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
-            margin: 0 0 8px 8px;
-        }
-
-        /* iOS 6 Glossy Subtitle Headers for Depiction Sections */
-        .depiction-header {
-            background: linear-gradient(to bottom, #f2f3f5 0%, #dcdee4 50%, #cfd2db 51%, #e1e4eb 100%);
-            border: 1px solid #ababab;
-            border-bottom: 1px solid #a1a1a1;
-            color: #4c566c;
-            font-size: 15px;
-            font-weight: bold;
-            padding: 7px 15px;
-            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            margin-top: 15px;
-        }
-
-        .table-group {
-            background: #ffffff;
-            border: 1px solid #ababab;
-            border-radius: 10px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-            margin-bottom: 12px;
-            padding: 0;
-            overflow: hidden;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .table-group.depiction-group {
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-            border-top: none;
-            margin-bottom: 15px;
-        }
-
-        .table-row {
-            display: block;
-            position: relative;
-            padding: 10px 15px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #222222;
-            text-decoration: none;
-            border-bottom: 1px solid #e0e0e0;
-            background: #ffffff;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .table-row:last-child {
-            border-bottom: none;
-        }
-
-        .row-link {
-            color: #385487;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .row-link:active {
-            background: #e5e5e5;
-            color: #385487;
-        }
-
-        .row-static {
-            color: #000000;
-            font-weight: normal;
-        }
-
-        .row-desc {
-            font-family: -apple-system-body, "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 15px;
-            color: #222222;
-            line-height: 1.35;
-            display: block;
-        }
-
-        /* List Layout with Row Icons */
-        .pkg-row-layout {
+        .brand-link {
             display: flex;
             align-items: center;
             gap: 12px;
-            padding-right: 15px;
-        }
-
-        .pkg-row-icon {
-            width: 30px;
-            height: 30px;
-            border-radius: 7px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-            flex-shrink: 0;
-        }
-
-        .depiction-text-block {
-            padding: 15px;
-            font-size: 15px;
-            color: #222222;
-            line-height: 1.5;
-            background: #ffffff;
-        }
-
-        .depiction-list {
-            margin: 0;
-            padding-left: 20px;
-        }
-
-        .depiction-list li {
-            margin-bottom: 10px;
-            font-size: 15px;
-            color: #222222;
-        }
-
-        .depiction-list li:last-child {
-            margin-bottom: 0;
-        }
-
-        .pkg-subtitle {
-            font-size: 12px;
-            color: #666666;
-            font-weight: normal;
-            display: block;
-            margin-top: 1px;
-            line-height: 1.2;
-        }
-
-        .file-box {
-            display: flex;
-            align-items: center;
-            background: #f6f8fa;
-            border: 1px solid #d1d5db;
-            padding: 10px 12px;
-            border-radius: 6px;
-            font-size: 14px;
-            color: #24292f;
-            margin: 5px 0;
-        }
-
-        /* ================= iOS 6 FORM INPUT ELEMENTS ================= */
-        .ios6-form {
-            padding: 10px 12px;
-            background: #ffffff;
-            box-sizing: border-box;
-        }
-
-        .ios6-label {
-            display: block;
-            font-size: 14px;
-            font-weight: bold;
-            color: #4c566c;
-            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-            margin-bottom: 4px;
-            padding-left: 2px;
-        }
-
-        .ios6-input, .ios6-textarea {
-            width: 100%;
-            font-family: -apple-system-body, "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 15px;
-            padding: 6px 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ababab;
-            border-radius: 6px;
-            background-color: #ffffff;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 0 #fff;
-            color: #000000;
-            box-sizing: border-box;
-            outline: none;
-            -webkit-appearance: none;
-        }
-
-        .ios6-input:focus, .ios6-textarea:focus {
-            border-color: #385487;
-        }
-
-        .ios6-textarea {
-            resize: none;
-            min-height: 52px;
-            overflow: hidden;
-            margin-bottom: 10px;
-        }
-
-        .ios6-btn-blue {
-            display: block;
-            width: 100%;
-            padding: 9px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #ffffff;
-            text-align: center;
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-            background: linear-gradient(to bottom, #7aa1df 0%, #4373ca 50%, #2a5cb4 51%, #2452a3 100%);
-            border: 1px solid #1a3d80;
-            border-radius: 8px;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            user-select: none;
-            box-sizing: border-box;
-            -webkit-appearance: none;
-        }
-
-        .ios6-btn-blue:active {
-            background: linear-gradient(to bottom, #2452a3 0%, #1a3d80 100%);
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
-        }
-
-        /* ================= AUTHENTIC iOS 6 UIALERTVIEW POPUP MODAL ================= */
-        .ios6-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 9999;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .ios6-alert {
-            width: 100%;
-            max-width: 275px;
-            background: linear-gradient(to bottom, #1f2944 0%, #11182c 100%);
-            border: 2px solid #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            padding: 18px;
-            text-align: center;
-            box-sizing: border-box;
-            animation: alertPop 0.2s ease-out;
-        }
-
-        @keyframes alertPop {
-            0% { transform: scale(1.15); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .ios6-alert-title {
-            font-size: 17px;
-            font-weight: bold;
-            color: #ffffff;
-            margin: 0 0 8px 0;
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
-        }
-
-        .ios6-alert-message {
-            font-size: 14px;
-            color: #ffffff;
-            margin: 0 0 18px 0;
-            line-height: 1.3;
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
-        }
-
-        /* Glossy Native Dismiss Button Structure */
-        .ios6-alert-btn {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #ffffff;
-            background: linear-gradient(to bottom, #a1b4cc 0%, #5d7a99 48%, #4c6a8c 52%, #446080 100%);
-            border: 1px solid #1c2a3a;
-            border-radius: 6px;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0,0,0,0.4);
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
-            cursor: pointer;
-            outline: none;
-        }
-
-        .ios6-alert-btn:active {
-            background: linear-gradient(to bottom, #304559 0%, #1d2b3d 100%);
-        }
-
-        /* ================= iOS 6 BACK NAVIGATION ================= */
-        .back-nav-container {
-            margin-bottom: 20px;
-            padding-left: 5px;
-            display: flex;
-            align-items: center;
-        }
-
-        .ios6-back-button {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            height: 28px;
-            padding: 0 12px 0 14px;
-            margin-left: 14px;      
-            background: linear-gradient(to bottom, #6d829e 0%, #566c89 48%, #495e7c 52%, #425574 100%);
-            border: 1px solid #2d3b52;
-            border-left: none;
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0,0,0,0.2);
-            color: #ffffff;
-            font-size: 12px;
-            font-weight: bold;
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
             text-decoration: none;
+            color: var(--text-main);
             cursor: pointer;
-            user-select: none;
-            -webkit-tap-highlight-color: transparent;
+            transition: var(--transition-fast);
         }
 
-        .ios6-back-button::before {
-            content: "";
-            position: absolute;
-            top: 3px; 
-            left: -10px;
-            width: 20px;
-            height: 20px;
-            background: linear-gradient(135deg, #6d829e 0%, #566c89 48%, #495e7c 52%, #425574 100%);
-            border-left: 1px solid #2d3b52;
-            border-bottom: 1px solid #2d3b52;
-            transform: rotate(45deg);
-            border-bottom-left-radius: 4px;
-            box-shadow: inset 1px -1px 0 rgba(255, 255, 255, 0.2);
-            z-index: 1;
+        .brand-link:hover {
+            opacity: 0.85;
         }
 
-        .ios6-back-button span {
+        .brand-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        .brand-link:hover .brand-avatar {
+            transform: scale(1.05) rotate(-5deg);
+        }
+
+        .brand-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-title span {
+            color: var(--accent-primary);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .main-menu {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border-left: 1px solid var(--border-highlight);
+            padding-left: 20px;
+            margin-left: 4px;
+        }
+
+        .main-menu a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: var(--transition-fast);
+            cursor: pointer;
             position: relative;
-            z-index: 2;
         }
 
-        .ios6-back-button:active, .ios6-back-button:active::before {
-            background: linear-gradient(to bottom, #425574 0%, #2d3b52 100%);
+        .main-menu a:hover, .main-menu a.active {
+            color: var(--accent-primary);
         }
 
-        .main-row-link::after {
-            content: "";
-            position: absolute;
-            right: 18px;
-            top: 50%;
-            width: 7px;
-            height: 7px;
-            border-top: 3px solid #7f7f7f;
-            border-right: 3px solid #7f7f7f;
-            transform: translateY(-50%) rotate(45deg);
+        .nav-socials {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Desktop Column Grid Setup */
-        .dashboard-grid {
+        .nav-socials a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            transition: var(--transition-fast);
+        }
+
+        .nav-socials a:hover {
+            color: var(--text-main);
+            background: var(--surface-subtle);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Header */
+        .hero {
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 60px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* Grid Layouts */
+        .section-header {
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .section-header.left-align {
+            text-align: left;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+
+        .section-header p {
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        .packages-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
-            align-items: start;
         }
 
-        .column {
+        .package-card {
+            background: var(--surface-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 24px;
             display: flex;
             flex-direction: column;
-            gap: 0;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            will-change: transform, box-shadow;
         }
 
+        .package-card.clickable {
+            cursor: pointer;
+        }
+
+        /* Enhanced Hover Animations */
+        .package-card.clickable:hover, .category-card:hover, .glass-panel.clickable:hover {
+            transform: translateY(-6px) scale(1.015);
+            border-color: var(--accent-primary);
+            background: var(--surface-card-hover);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+        }
+
+        .package-card.clickable:hover .card-arrow {
+            transform: translateX(6px);
+            color: var(--accent-primary);
+        }
+
+        .package-card.clickable:hover .pkg-icon-box {
+            transform: scale(1.08);
+        }
+
+        .card-arrow {
+            transition: var(--transition-smooth);
+            display: inline-block;
+        }
+
+        .pkg-icon-box {
+            width: 52px;
+            height: 52px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 1.8rem;
+            color: var(--text-main);
+            transition: var(--transition-smooth);
+        }
+
+        .pkg-icon-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Category Large Cards (Hub Page) */
+        .category-card {
+            background: var(--surface-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            will-change: transform, box-shadow;
+        }
+
+        .category-card .icon {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+        }
+
+        .category-card:hover .icon {
+            transform: translateY(-4px) scale(1.1);
+        }
+
+        .category-card .icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .category-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .category-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Dev Center Profile Cards */
+        .dev-card {
+            background: var(--surface-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: var(--transition-smooth);
+        }
+
+        .dev-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .dev-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-primary);
+            margin-bottom: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            transition: var(--transition-smooth);
+        }
+
+        .dev-card:hover .dev-avatar {
+            transform: scale(1.05);
+            box-shadow: 0 12px 28px rgba(56, 189, 248, 0.3);
+        }
+
+        .dev-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .dev-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Two-Column Studio Layout */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .glass-panel {
+            background: var(--surface-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: var(--transition-smooth);
+            will-change: transform, box-shadow;
+        }
+
+        .glass-panel.clickable {
+            cursor: pointer;
+        }
+
+        .glass-panel h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .glass-panel p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .pm-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .btn-modern-repo {
+            display: inline-flex;
+            align-items: center;
+            background: var(--surface-subtle);
+            color: var(--text-main);
+            padding: 10px 18px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: 1px solid var(--border-subtle);
+            transition: var(--transition-fast);
+        }
+
+        .btn-modern-repo:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            background: rgba(56, 189, 248, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+        }
+
+        /* Modernized Form Inputs */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            background: rgba(13, 18, 28, 0.6);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: var(--transition-fast);
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            width: 100%;
+            background: var(--text-main);
+            color: #0b0f17;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            background: #e2e8f0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        /* View Switching Logic with Advanced Animations */
         .page-view {
             display: none;
         }
 
         .page-view.active-view {
             display: block;
+            animation: smoothFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .dashboard-block {
-            display: block;
+        @keyframes smoothFadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(16px) scale(0.98); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            background: var(--surface-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-subtle);
+            padding: 8px 18px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 32px;
+            transition: var(--transition-fast);
+        }
+
+        .back-btn:hover {
+            color: var(--text-main);
+            border-color: var(--text-muted);
+            transform: translateX(-4px);
+        }
+
+        .detail-hero {
+            background: var(--surface-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            transition: var(--transition-smooth);
+        }
+
+        .detail-hero:hover {
+            border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+        }
+
+        .detail-hero-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-md);
+            object-fit: contain;
+            transition: var(--transition-smooth);
+        }
+
+        .detail-hero:hover .detail-hero-icon {
+            transform: scale(1.05);
+        }
+
+        .detail-content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+
+        .detail-card {
+            background: var(--surface-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            margin-bottom: 24px;
+            transition: var(--transition-smooth);
+        }
+
+        .detail-card:hover {
+            border-color: rgba(255,255,255,0.15);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        .detail-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        .detail-list, .detail-steps {
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .detail-list li, .detail-steps li {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        code {
+            background: rgba(13, 18, 28, 0.6);
+            border: 1px solid var(--border-subtle);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85em;
+            color: var(--accent-primary);
+        }
+
+        .file-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(13, 18, 28, 0.6);
+            border: 1px solid var(--border-subtle);
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            margin-top: 8px;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border-highlight);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            max-width: 400px;
             width: 100%;
+            text-align: center;
+            box-shadow: 0 24px 48px -12px rgba(0,0,0,0.6);
         }
 
-        @media (max-width: 768px) {
-            .dashboard-grid {
-                display: flex;       
+        .modal-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .modal-card p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+
+        /* Mobile Responsive UI Breakpoints & Animations */
+        @media (min-width: 861px) {
+            .nav-left { 
+                width: auto; 
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 20px;
+            }
+            .brand-header {
+                width: auto;
+            }
+            .main-menu {
+                display: flex;
+                align-items: center;
+                border-left: 1px solid var(--border-highlight);
+                padding-left: 20px;
+                margin-left: 4px;
+            }
+            .nav-socials {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 860px) {
+            .site-nav {
+                border-radius: var(--radius-md);
                 flex-direction: column;
+                align-items: stretch;
+                padding: 16px;
+            }
+            .nav-left {
+                flex-direction: column;
+                align-items: stretch;
                 gap: 0;
+            }
+            .brand-header {
                 width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
-            .column {
-                display: contents;   
-            }
-            .container {
-                padding: 10px;
-            }
-            .header-card {
-                max-width: 100%;
-                gap: 15px;
-                padding: 12px 15px; 
-            }
-            .repo-title {
-                font-size: 26px;
-                letter-spacing: -1px;
-                line-height: 1.15; 
-            }
-            .repo-title span {
+            
+            /* Hamburger Icon Animation */
+            .mobile-toggle {
                 display: block;
             }
-            .repo-icon-wrapper {
-                width: 64px;
-                height: 64px;
-                border-radius: 14px;
+            .mobile-toggle svg line {
+                transition: transform 0.3s ease, opacity 0.3s ease;
+                transform-origin: center;
             }
-            .back-nav-container {
-                padding-left: 0;
+            .mobile-toggle.active line:nth-child(1) {
+                opacity: 0;
             }
-            .section-title {
-                margin: 10px 0 6px 6px;
+            .mobile-toggle.active line:nth-child(2) {
+                transform: translateY(6px) rotate(45deg);
+            }
+            .mobile-toggle.active line:nth-child(3) {
+                transform: translateY(-6px) rotate(-45deg);
             }
 
-            .block-package-managers { order: 1; }
-            .block-featured {         order: 2; }
-            .block-about-me {         order: 3; }
-            .block-social {           order: 4; }
-            .block-beta-form {        order: 5; }
+            /* Mobile Dropdown Animation */
+            .main-menu {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                border-left: none;
+                padding-left: 0;
+                margin-left: 0;
+                width: 100%;
+                
+                /* Closed State */
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                border-top: 1px solid transparent;
+                margin-top: 0;
+                padding-top: 0;
+                transition: max-height 0.5s ease, opacity 0.4s ease, padding-top 0.4s ease, margin-top 0.4s ease, border-color 0.4s ease;
+            }
+            .main-menu.active {
+                /* Open State */
+                max-height: 300px;
+                opacity: 1;
+                border-top-color: var(--border-subtle);
+                margin-top: 16px;
+                padding-top: 16px;
+            }
+
+            .nav-socials {
+                display: flex;
+                width: 100%;
+                justify-content: flex-start;
+                
+                /* Closed State */
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                margin-top: 0;
+                padding-top: 0;
+                transition: max-height 0.5s ease, opacity 0.4s ease, padding-top 0.4s ease, margin-top 0.4s ease;
+            }
+            .nav-socials.active {
+                /* Open State */
+                max-height: 100px;
+                opacity: 1;
+                margin-top: 12px;
+                padding-top: 12px;
+            }
+
+            .bottom-grid, .detail-content-grid { grid-template-columns: 1fr; }
+            .detail-hero { flex-direction: column; align-items: flex-start; padding: 28px; }
         }
     </style>
 </head>
@@ -508,335 +805,370 @@
 
     <div class="container">
 
-        <div id="repo-main-page" class="page-view active-view">
-            <div class="header-section">
-                <div class="header-card">
-                    <div class="repo-icon-wrapper">
-                        <img src="icons/LOGO.png" class="repo-icon" onerror="this.onerror=function(){this.src='icons/logo.png'; this.onerror=function(){this.src='Cydiaicon.png';}}; if(this.src.indexOf('Cydiaicon.png')===-1)this.src='icons/LOGO.png';" alt="Icon">
-                    </div>
-                    <div class="repo-title">RetroWeirdos<span>Projects</span></div>
+        <!-- Global Navigation Bar with Mobile UI -->
+        <nav class="site-nav">
+            <div class="nav-left">
+                <div class="brand-header">
+                    <a onclick="switchPage('home-page')" class="brand-link">
+                        <img src="icons/LOGO.png" class="brand-avatar" onerror="this.onerror=function(){this.src='icons/logo.png'; this.onerror=function(){this.src='Cydiaicon.png';}}; if(this.src.indexOf('Cydiaicon.png')===-1)this.src='icons/LOGO.png';" alt="RetroLabs">
+                        <div class="brand-title">Retro<span>Labs</span></div>
+                    </a>
+                    <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
                 </div>
-            </div>
-
-            <div class="dashboard-grid">
                 
-                <div class="column">
-                    <div class="dashboard-block block-social">
-                        <div class="section-title">Social</div>
-                        <div class="table-group">
-                            <a href="https://x.com/RetroWeirdos" target="_blank" class="table-row row-link main-row-link">X</a>
-                            <a href="https://www.reddit.com/user/Total_Negotiation608/" target="_blank" class="table-row row-link main-row-link">Reddit</a>
-                            <a href="https://www.youtube.com/@RetroWeirdos" target="_blank" class="table-row row-link main-row-link">YouTube</a>
-                        </div>
-                    </div>
+                <div class="main-menu" id="main-menu-links">
+                    <a onclick="switchPage('home-page')" id="nav-home" class="active">Home</a>
+                    <a onclick="switchPage('projects-hub-page')" id="nav-projects">Projects</a>
+                    <a onclick="switchPage('repository-page')" id="nav-repository">Repository</a>
+                    <a onclick="switchPage('dev-center-page')" id="nav-dev-center">Dev Center</a>
+                    <a onclick="switchPage('extras-page')" id="nav-extras">Extras</a>
+                </div>
+            </div>
+            
+            <div class="nav-socials" id="nav-socials-links">
+                <a href="https://www.reddit.com/user/Total_Negotiation608/" target="_blank" rel="noopener">Reddit</a>
+                <a href="https://www.youtube.com/@RetroWeirdos" target="_blank" rel="noopener">YouTube</a>
+            </div>
+        </nav>
 
-                    <div class="dashboard-block block-package-managers">
-                        <div class="section-title">Add to Package Manager</div>
-                        <div class="table-group">
-                            <div class="table-row row-static" style="font-weight: bold;">LegacyMeRepo</div>
-                            <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://legacy-me.github.io/repo/" class="table-row row-link main-row-link">Add to Cydia</a>
-                            <a href="sileo://source/https://legacy-me.github.io/repo/" class="table-row row-link main-row-link">Add to Sileo</a>
-                            <a href="zbra://sources/add/https://legacy-me.github.io/repo/" class="table-row row-link main-row-link">Add to Zebra</a>
-                            <a href="installer://add/https://legacy-me.github.io/repo/" class="table-row row-link main-row-link">Add to Installer</a>
-                        </div>
-                    </div>
+        <!-- Home View -->
+        <div id="home-page" class="page-view active-view">
+            <header class="hero">
+                <h1>Reviving legacy technology is what we do.</h1>
+                <p style="color: #06b6d4;">Preserving legacy platforms and retro environments through clean system tweaks, custom hooks, and responsive backports.</p>
+            </header>
 
-                    <div class="dashboard-block block-beta-form">
-                        <div class="section-title">Submit Application for Beta Testing</div>
-                        <div class="table-group">
-                            <form id="betaTestForm" class="ios6-form">
-                                <label class="ios6-label" for="beta-email">Email Address</label>
-                                <input class="ios6-input" type="email" id="beta-email" name="email" placeholder="example@email.com" required>
-                                
-                                <label class="ios6-label" for="beta-reason">Why do you want to beta test my projects?</label>
-                                <textarea class="ios6-textarea" id="beta-reason" name="reason" placeholder="State exactly why you want to test these legacy tweaks..." required></textarea>
-                                
-                                <button class="ios6-btn-blue" type="submit">Submit Application</button>
-                            </form>
-                        </div>
+            <div class="bottom-grid">
+                <div class="glass-panel clickable" onclick="switchPage('projects-hub-page')">
+                    <h3>Explore Projects &rarr;</h3>
+                    <p>Whether you are looking to resurrect a legacy device or integrate it into your daily routine, our projects provide the perfect solution.</p>
+                </div>
+                <div class="glass-panel clickable" onclick="switchPage('repository-page')">
+                    <h3>The Cydia Repository &rarr;</h3>
+                    <p>Access our tweaks and system patches directly on your legacy device.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Cydia Repository Page -->
+        <div id="repository-page" class="page-view">
+            <div class="section-header">
+                <h2>The Cydia Repository</h2>
+            </div>
+            <div class="glass-panel" style="max-width: 800px; margin: 0 auto;">
+                <h3>Why Our Repo Matters</h3>
+                <p style="margin-bottom: 16px;">
+                    Sharing our tweaks is incredibly important to us. We believe that keeping legacy technology alive requires an open, accessible community. By hosting our own Cydia repository, we ensure that everyone has free, unrestricted access to the patches and tools needed to revive their classic hardware.
+                </p>
+                <p>Repository base URL: <code>https://legacy-me.github.io/repo/</code></p>
+                <div class="pm-buttons">
+                    <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://legacy-me.github.io/repo/" class="btn-modern-repo">Cydia</a>
+                    <a href="sileo://source/https://legacy-me.github.io/repo/" class="btn-modern-repo">Sileo</a>
+                    <a href="zbra://sources/add/https://legacy-me.github.io/repo/" class="btn-modern-repo">Zebra</a>
+                    <a href="installer://add/https://legacy-me.github.io/repo/" class="btn-modern-repo">Installer</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dev Center Page -->
+        <div id="dev-center-page" class="page-view">
+            <div class="section-header">
+                <h2>Dev Center</h2>
+                <p>Meet the engineers behind RetroLabs.</p>
+            </div>
+            <div class="bottom-grid">
+                <div class="dev-card">
+                    <img src="icons/Cydia.png" class="dev-avatar" alt="RetroWeirdos">
+                    <h3>RetroWeirdos</h3>
+                    <p>Influencer with experience in coding</p>
+                </div>
+                <div class="dev-card">
+                    <img src="icons/Forman.png" class="dev-avatar" alt="Forman">
+                    <h3>Forman</h3>
+                    <p>An experienced Developer</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Extras Page -->
+        <div id="extras-page" class="page-view">
+            <div class="section-header">
+                <h2>Extras</h2>
+            </div>
+            <div class="bottom-grid">
+                <div class="glass-panel">
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions, suggestions, or just want to chat about retro tech, reach out to us directly!</p>
+                    <div style="margin-top: 20px;">
+                        <strong>Email:</strong><br>
+                        <a href="mailto:retro.weirdos.world@gmail.com" style="color: var(--accent-primary); text-decoration: none; font-weight: bold;">retro.weirdos.world@gmail.com</a>
                     </div>
                 </div>
 
-                <div class="column">
-                    <div class="dashboard-block block-about-me">
-                        <div class="section-title">About Me</div>
-                        <div class="table-group">
-                            <div class="table-row row-static" style="padding: 12px 15px;">
-                                <span class="row-desc">
-                                    Hi, I’m RetroWeirdos — a young developer with a deep passion for legacy technology and vintage iOS. Growing up surrounded by old devices, I fell in love with the golden era of iOS (versions 6 through 9) and the clean, charming design of Windows 8. As a legacy iOS enthusiast, I enjoy breathing new life into older Apple devices through sideloading, custom tweaks, and creative modifications. Whether it’s developing apps, exploring retro emulators, or tinkering with forgotten operating systems, I’m always chasing that nostalgic tech feeling. My goal is to preserve and celebrate the soul of older technology while building fun, unique projects for the community.
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="dashboard-block block-featured">
-                        <div class="section-title">Featured Packages</div>
-                        <div class="table-group">
-                            <a onclick="switchPage('pinterestx-page')" class="table-row row-link main-row-link">
-                                <div class="pkg-row-layout">
-                                    <img src="icons/PinterestX.png" class="pkg-row-icon" alt="Icon">
-                                    <div>
-                                        PinterestX
-                                        <span class="pkg-subtitle">Fixes Pinterest on iOS 5+ Requires Pinterest 2.6+</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a onclick="switchPage('duolingox-page')" class="table-row row-link main-row-link">
-                                <div class="pkg-row-layout">
-                                    <img src="icons/DuolingoX.png" class="pkg-row-icon" alt="Icon">
-                                    <div>
-                                        DuolingoX
-                                        <span class="pkg-subtitle">Changes Duolingo's User-Agent enabling it to function on iOS 9!</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a onclick="switchPage('xenhtml-page')" class="table-row row-link main-row-link">
-                                <div class="pkg-row-layout">
-                                    <img src="icons/Xenhtml.png" class="pkg-row-icon" alt="Icon">
-                                    <div>
-                                        Xen HTML fix for iOS 9!
-                                        <span class="pkg-subtitle">Unified HTML widgets; lockscreen and homescreen</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <a onclick="switchPage('maize-page')" class="table-row row-link main-row-link">
-                                <div class="pkg-row-layout">
-                                    <img src="icons/Maize.png" class="pkg-row-icon" alt="Icon">
-                                    <div>
-                                        Maize (iOS 9.3.5)
-                                        <span class="pkg-subtitle">The iOS 11 Control Center on iOS 9.3.5</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                <div class="glass-panel" style="padding: 0; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScRfrXgtieWGi1Th_Qm_aFZJEslfaKpESoBUWaTU2MoDnNXag/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                 </div>
+            </div>
+        </div>
 
-            </div> </div>
+        <!-- Projects HUB (Topic Selection) -->
+        <div id="projects-hub-page" class="page-view">
+            <div class="section-header">
+                <h2>Select a Platform</h2>
+            </div>
+            
+            <div class="packages-grid">
+                <div class="category-card" onclick="switchPage('topic-ios-page')">
+                    <div class="icon"><img src="icons/iOS.png" alt="iOS"></div>
+                    <h3>iOS Projects</h3>
+                </div>
+                <div class="category-card" onclick="switchPage('topic-macos-page')">
+                    <div class="icon"><img src="icons/MacOS.jpg" alt="macOS"></div>
+                    <h3>macOS Projects</h3>
+                </div>
+                <div class="category-card" onclick="switchPage('topic-windows-page')">
+                    <div class="icon"><img src="icons/WP.png" alt="Windows Phone"></div>
+                    <h3>Windows Phone</h3>
+                </div>
+                <div class="category-card" onclick="switchPage('topic-multiplatform-page')">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Multiplatform</h3>
+                </div>
+            </div>
+        </div>
 
+        <!-- Topic: iOS Projects -->
+        <div id="topic-ios-page" class="page-view">
+            <button class="back-btn" onclick="switchPage('projects-hub-page')">&larr; Back to Topics</button>
+            <div class="section-header left-align">
+                <h2>iOS Projects</h2>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card clickable" onclick="switchPage('pinterestx-page')">
+                    <div class="pkg-icon-box"><img src="icons/PinterestX.png" alt="PinterestX"></div>
+                    <h3>PinterestX <span class="card-arrow">&rarr;</span></h3>
+                    <p>Changes the "info.plist" inside the app files to make the app identify as a newer version</p>
+                </div>
+                <div class="package-card clickable" onclick="switchPage('duolingox-page')">
+                    <div class="pkg-icon-box"><img src="icons/DuolingoX.png" alt="DuolingoX"></div>
+                    <h3>DuolingoX <span class="card-arrow">&rarr;</span></h3>
+                    <p>A fix for Duolingo on iOS 8 and 9. For now, login on iOS 8 is manual (With cookies/session data)</p>
+                </div>
+                <div class="package-card clickable" onclick="switchPage('xenhtml-page')">
+                    <div class="pkg-icon-box"><img src="icons/Xenhtml.png" alt="Xen HTML Fix"></div>
+                    <h3>Xen HTML Fix <span class="card-arrow">&rarr;</span></h3>
+                    <p>Fixes the Xen HTML installation problems on older iOS devices</p>
+                </div>
+            </div>
+        </div>
 
+        <!-- Topic: macOS Projects -->
+        <div id="topic-macos-page" class="page-view">
+            <button class="back-btn" onclick="switchPage('projects-hub-page')">&larr; Back to Topics</button>
+            <div class="section-header left-align">
+                <h2>macOS Projects</h2>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="pkg-icon-box" style="background: rgba(56, 189, 248, 0.1); border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.3); display: flex; justify-content: center; align-items: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Coming soon</h3>
+                    <p>We are currently focused on iOS projects, projects in this category will eventually appear sometime in the future.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Topic: Windows Phone -->
+        <div id="topic-windows-page" class="page-view">
+            <button class="back-btn" onclick="switchPage('projects-hub-page')">&larr; Back to Topics</button>
+            <div class="section-header left-align">
+                <h2>Windows Phone Projects</h2>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="pkg-icon-box" style="background: rgba(56, 189, 248, 0.1); border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.3); display: flex; justify-content: center; align-items: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Coming soon</h3>
+                    <p>We are currently focused on iOS projects, projects in this category will eventually appear sometime in the future.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Topic: Multiplatform -->
+        <div id="topic-multiplatform-page" class="page-view">
+            <button class="back-btn" onclick="switchPage('projects-hub-page')">&larr; Back to Topics</button>
+            <div class="section-header left-align">
+                <h2>Multiplatform Projects</h2>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="pkg-icon-box"><img src="icons/SeeMyCydia.jpg" alt="SeeMyCydia"></div>
+                    <h3>SeeMyCydia</h3>
+                    <p>A multiplatform web interface to easily view, explore, and manage Cydia repositories from any browser.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Detail: PinterestX -->
         <div id="pinterestx-page" class="page-view">
-            <div class="back-nav-container">
-                <div onclick="switchPage('repo-main-page')" class="ios6-back-button"><span>Back</span></div>
+            <button class="back-btn" onclick="switchPage('topic-ios-page')">&larr; Back to iOS Projects</button>
+            <div class="detail-hero">
+                <img src="icons/PinterestX.png" class="detail-hero-icon" alt="PinterestX">
+                <div>
+                    <h1>PinterestX</h1>
+                    <p>Changes the "info.plist" inside the app files to make the app identify as a newer version</p>
+                </div>
             </div>
-
-            <div class="header-section">
-                <div class="header-card" style="max-width: 100%; background: transparent; border: none; box-shadow: none; padding: 10px 0; flex-direction: column; gap: 12px; text-align: center;">
-                    <div class="repo-icon-wrapper" style="border-radius: 18px; margin: 0 auto;">
-                        <img src="icons/PinterestX.png" class="repo-icon" alt="PinterestX Icon">
+            <div class="detail-content-grid">
+                <div>
+                    <div class="detail-card">
+                        <h3>Core Features</h3>
+                        <ul class="detail-list">
+                            <li>Fixes Pinterest crashes on iOS 5+ by sanitizing runtime version keys.</li>
+                            <li>Empties <code>CFBundleVersion</code> and <code>CFBundleShortVersionString</code>.</li>
+                            <li>Suppresses forced update modal dialogs on launch.</li>
+                        </ul>
                     </div>
-                    <div>
-                        <div style="font-family: -apple-system-headline, sans-serif; font-size: 32px; font-weight: bold; color: #000; text-shadow: 0 1px 0 #fff;">PinterestX</div>
-                        <p style="font-size: 15px; margin: 6px 0 0 0; color: #333; line-height: 1.4;">An iOS tweak that automatically fixes Pinterest on iOS 5+ by modifying the app's Info.plist version strings.</p>
+                    <div class="detail-card">
+                        <h3>Deployment Instructions</h3>
+                        <ol class="detail-steps">
+                            <li>Add <code>https://legacy-me.github.io/repo/</code> to your jailbreak manager.</li>
+                            <li>Search for and install <strong>PinterestX</strong>.</li>
+                            <li>Respring your device to apply Substrate hooks.</li>
+                        </ol>
                     </div>
                 </div>
-            </div>
-
-            <div class="depiction-header">Features</div>
-            <div class="table-group depiction-group">
-                <div class="depiction-text-block">
-                    <ul class="depiction-list">
-                        <li>Automatically fixes Pinterest crashes on iOS 5+</li>
-                        <li>Modifies <code>CFBundleVersion</code> and <code>CFBundleShortVersionString</code> to empty strings</li>
-                        <li>Blocks update alerts that appear on app launch</li>
-                        <li>Supports multiple Pinterest bundle identifiers since there are some versions with weird bundle identifiers</li>
-                        <li>The tweak remembers if Pinterest is already fixed to avoid unnecessary scans</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="depiction-header">Requirements</div>
-            <div class="table-group depiction-group">
-                <div class="depiction-text-block">
-                    <ul class="depiction-list">
-                        <li>iOS 5.0+</li>
-                        <li><strong>Pinterest app</strong> version 2.6+ (tested with versions 2.6+, 3.4.1, and 3.8.1)</li>
-                        <li>MobileSubstrate</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="depiction-header">Installation</div>
-            <div class="table-group depiction-group">
-                <div class="table-row row-static">
-                    <ol style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.6;">
-                        <li>Add the repo <code>https://legacy-me.github.io/repo/</code> to Cydia</li>
-                        <li>Install PinterestX</li>
-                        <li>Respring your device</li>
-                        <li>Launch Pinterest - it should now work without crashing!</li>
-                    </ol>
+                <div>
+                    <div class="detail-card">
+                        <h3>Prerequisites</h3>
+                        <ul class="detail-list">
+                            <li>iOS 5.0 or later</li>
+                            <li>Pinterest 2.6+</li>
+                            <li>MobileSubstrate runtime</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
 
-
+        <!-- Project Detail: DuolingoX -->
         <div id="duolingox-page" class="page-view">
-            <div class="back-nav-container">
-                <div onclick="switchPage('repo-main-page')" class="ios6-back-button"><span>Back</span></div>
+            <button class="back-btn" onclick="switchPage('topic-ios-page')">&larr; Back to iOS Projects</button>
+            <div class="detail-hero">
+                <img src="icons/DuolingoX.png" class="detail-hero-icon" alt="DuolingoX">
+                <div>
+                    <h1>DuolingoX</h1>
+                    <p>A fix for Duolingo on iOS 8 and 9. For now, login on iOS 8 is manual (With cookies/session data)</p>
+                </div>
             </div>
-
-            <div class="header-section">
-                <div class="header-card" style="max-width: 100%; background: transparent; border: none; box-shadow: none; padding: 10px 0; flex-direction: column; gap: 12px; text-align: center;">
-                    <div class="repo-icon-wrapper" style="border-radius: 18px; margin: 0 auto;">
-                        <img src="icons/DuolingoX.png" class="repo-icon" alt="DuolingoX Icon">
+            <div class="detail-content-grid">
+                <div>
+                    <div class="detail-card">
+                        <h3>Core Features</h3>
+                        <ul class="detail-list">
+                            <li>Overrides the client User-Agent string.</li>
+                            <li>Resolves network authentication errors seamlessly.</li>
+                            <li>Lightweight zero-config payload.</li>
+                        </ul>
                     </div>
-                    <div>
-                        <div style="font-family: -apple-system-headline, sans-serif; font-size: 32px; font-weight: bold; color: #000; text-shadow: 0 1px 0 #fff;">DuolingoX</div>
-                        <p style="font-size: 15px; margin: 6px 0 0 0; color: #333; line-height: 1.4;">DuolingoX is a project that aims to fix Duolingo on iOS 9. This is accomplished by overriding the User-Agent string of the app.</p>
-                        <p style="font-size: 13px; margin: 4px 0 0 0; color: #666; font-style: italic;">This project has no affiliation with Duolingo.</p>
+                    <div class="detail-card">
+                        <h3>Manual Package Delivery</h3>
+                        <ol class="detail-steps">
+                            <li>Download the payload: <div class="file-pill">📦 DuolingoX.deb</div></li>
+                            <li>Deploy via shell: <code>dpkg -i DuolingoX.deb</code></li>
+                            <li>Restart SpringBoard.</li>
+                        </ol>
                     </div>
-                </div>
-            </div>
-
-            <div class="depiction-header">Features</div>
-            <div class="table-group depiction-group">
-                <div class="depiction-text-block">
-                    <ul class="depiction-list">
-                        <li>Overrides the User-Agent string to fix Duolingo on iOS 9</li>
-                        <li>Allows Duolingo to connect to its servers without errors</li>
-                        <li>Lightweight and easy to install</li>
-                        <li>No configuration is required</li>
-                        <li>Safe to use and does not modify other system files</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="depiction-header">Requirements</div>
-            <div class="table-group depiction-group">
-                <div class="depiction-text-block">
-                    <ul class="depiction-list" style="margin: 0; padding-left: 20px;">
-                        <li>iOS 9.0 &ndash; 9.3.6</li>
-                        <li>Duolingo app (latest compatible version for iOS 9)</li>
-                        <li>Jailbroken device</li>
-                        <li>Cydia Substrate</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="depiction-header">Manual Installation</div>
-            <div class="table-group depiction-group">
-                <div class="table-row row-static">
-                    <ol style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.6;">
-                        <li>Download the <code>.deb</code> file
-                            <div class="file-box">📄 DuolingoX.deb (12.4 KB)</div>
-                        </li>
-                        <li>Install using <code>dpkg -i DuolingoX.deb</code></li>
-                        <li>Respring your device</li>
-                    </ol>
                 </div>
             </div>
         </div>
 
-
+        <!-- Project Detail: Xen HTML Fix -->
         <div id="xenhtml-page" class="page-view">
-            <div class="back-nav-container">
-                <div onclick="switchPage('repo-main-page')" class="ios6-back-button"><span>Back</span></div>
-            </div>
-
-            <div class="header-section">
-                <div class="header-card" style="max-width: 100%; background: transparent; border: none; box-shadow: none; padding: 10px 0; flex-direction: column; gap: 12px; text-align: center;">
-                    <div class="repo-icon-wrapper" style="margin: 0 auto; border-radius: 18px;">
-                        <img src="icons/Xenhtml.png" class="repo-icon" alt="Xen HTML Fix Icon">
-                    </div>
-                    <div>
-                        <div style="font-family: -apple-system-headline, sans-serif; font-size: 32px; font-weight: bold; color: #000; text-shadow: 0 1px 0 #fff;">Xen HTML Fix</div>
-                        <p style="font-size: 15px; margin: 6px 0 0 0; color: #333; line-height: 1.4;">Unified HTML widgets setup patch optimized specifically to run cleanly on older homescreens and lockscreens.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="depiction-header">Features</div>
-            <div class="table-group depiction-group">
-                <div class="depiction-text-block">
-                    <ul class="depiction-list">
-                        <li>Brings completely functional unified HTML engine capabilities back to older platforms</li>
-                        <li>Allows HTML elements to serve flawlessly as responsive interactive background modifications</li>
-                        <li>Optimized canvas renders preventing frame drops or operational overhead on 32-bit hardware architectures</li>
-                    </ul>
+            <button class="back-btn" onclick="switchPage('topic-ios-page')">&larr; Back to iOS Projects</button>
+            <div class="detail-hero">
+                <img src="icons/Xenhtml.png" class="detail-hero-icon" alt="Xen HTML Fix">
+                <div>
+                    <h1>Xen HTML Fix</h1>
+                    <p>Fixes the Xen HTML installation problems on older iOS devices</p>
                 </div>
             </div>
         </div>
 
-
-        <div id="maize-page" class="page-view">
-            <div class="back-nav-container">
-                <div onclick="switchPage('repo-main-page')" class="ios6-back-button"><span>Back</span></div>
-            </div>
-
-            <div class="header-section">
-                <div class="header-card" style="max-width: 100%; background: transparent; border: none; box-shadow: none; padding: 10px 0; flex-direction: column; gap: 12px; text-align: center;">
-                    <div class="repo-icon-wrapper" style="margin: 0 auto;">
-                        <img src="icons/Maize.png" class="repo-icon" alt="Maize Icon">
-                    </div>
-                    <div>
-                        <div style="font-family: -apple-system-headline, sans-serif; font-size: 34px; font-weight: bold; color: #000; text-shadow: 0 1px 0 #fff;">Maize (iOS 9.3.5)</div>
-                        <p style="font-size: 15px; margin: 6px 0 0 0; color: #333; line-height: 1.4;">The full modular iOS 11 Control Center layout experience seamlessly backported to iOS 9.3.5 components.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="depiction-header">Features</div>
-            <div class="table-group depiction-group">
-                <div class="depiction-text-block">
-                    <ul class="depiction-list">
-                        <li>Replaces the old system overlay panels with beautiful modular dynamic slider control decks</li>
-                        <li>Includes support for Flipswitch toggle parameters and connectivity widgets natively</li>
-                        <li>Retains standard retro UI layout framework integrations without system stuttering</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div id="ios6AlertModal" class="ios6-overlay">
-        <div class="ios6-alert">
-            <h1 class="ios6-alert-title">Sent</h1>
-            <p class="ios6-alert-message">Your beta application has been submitted successfully.</p>
-            <button class="ios6-alert-btn" onclick="dismissAlert()">OK</button>
-        </div>
     </div>
 
     <script>
+        // Toggle mobile menu visibility
+        function toggleMobileMenu() {
+            var mainMenu = document.getElementById('main-menu-links');
+            var socialsMenu = document.getElementById('nav-socials-links');
+            var toggleBtn = document.querySelector('.mobile-toggle');
+            
+            mainMenu.classList.toggle('active');
+            socialsMenu.classList.toggle('active');
+            toggleBtn.classList.toggle('active');
+        }
+
         function switchPage(pageId) {
-            var views = document.querySelectorAll('.page-view');
-            views.forEach(function(view) {
+            // Hide all pages
+            document.querySelectorAll('.page-view').forEach(function(view) {
                 view.classList.remove('active-view');
             });
             
+            // Show target page
             var target = document.getElementById(pageId);
-            if(target) {
+            if (target) {
                 target.classList.add('active-view');
-                window.scrollTo(0, 0);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Close mobile menu if open
+            var mainMenu = document.getElementById('main-menu-links');
+            var socialsMenu = document.getElementById('nav-socials-links');
+            var toggleBtn = document.querySelector('.mobile-toggle');
+            
+            if (mainMenu.classList.contains('active')) {
+                mainMenu.classList.remove('active');
+                socialsMenu.classList.remove('active');
+                toggleBtn.classList.remove('active');
+            }
+
+            // Update Nav Active State
+            document.querySelectorAll('.main-menu a').forEach(a => a.classList.remove('active'));
+            
+            if (pageId === 'home-page') {
+                document.getElementById('nav-home').classList.add('active');
+            } else if (pageId === 'repository-page') {
+                document.getElementById('nav-repository').classList.add('active');
+            } else if (pageId === 'dev-center-page') {
+                document.getElementById('nav-dev-center').classList.add('active');
+            } else if (pageId === 'extras-page') {
+                document.getElementById('nav-extras').classList.add('active');
+            } else if (pageId.includes('project') || pageId.includes('topic') || pageId.includes('page')) {
+                // If it's a project/topic page, highlight projects
+                document.getElementById('nav-projects').classList.add('active');
             }
         }
-
-        // Intercept Formspree submission redirect loop entirely
-        document.getElementById('betaTestForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Completely traps browser redirects
-            
-            var form = this;
-            var data = new FormData(form);
-            var xhr = new XMLHttpRequest();
-            
-            xhr.open('POST', 'https://formspree.io/f/xoqggyen', true);
-            xhr.setRequestHeader('Accept', 'application/json');
-            
-            // Fires data payload securely into background workers without window movements
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    // Triggers local iOS 6 view popup window instantly regardless of backend feedback
-                    document.getElementById('ios6AlertModal').style.display = 'flex';
-                    form.reset(); 
-                }
-            };
-            xhr.send(data);
-        });
-
-        function dismissAlert() {
-            document.getElementById('ios6AlertModal').style.display = 'none';
-        }
     </script>
-
 </body>
 </html>
